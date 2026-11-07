@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinTrack</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💰 FinTrack</h1>
+
+    <!-- Saldo -->
+    <div class="saldo-box">
+      <span>Saldo atual</span>
+      <h2 id="saldo">R$ 0,00</h2>
+    </div>
+
+    <!-- Formulário -->
+    <div class="form-box">
+      <h3>Nova Transação</h3>
+      <input type="text" id="descricao" placeholder="Descrição" />
+      <input type="number" id="valor" placeholder="Valor (ex: 150.00)" step="0.01" />
+      <select id="tipo">
+        <option value="entrada">Entrada</option>
+        <option value="saida">Saída</option>
+      </select>
+      <select id="categoria">
+        <option value="alimentacao">Alimentação</option>
+        <option value="transporte">Transporte</option>
+        <option value="saude">Saúde</option>
+        <option value="lazer">Lazer</option>
+        <option value="salario">Salário</option>
+        <option value="outro">Outro</option>
+      </select>
+      <input type="date" id="data" />
+      <button onclick="salvarTransacao()">Adicionar</button>
+    </div>
+
+    <!-- Filtro -->
+    <div class="filtro-box">
+      <select id="filtro" onchange="carregarTransacoes()">
+        <option value="todos">Todos</option>
+        <option value="entrada">Entradas</option>
+        <option value="saida">Saídas</option>
+      </select>
+    </div>
+
+    <!-- Lista -->
+    <div id="lista"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
