@@ -37,6 +37,9 @@ app.delete('/transacoes/:id', (req, res) => {
   res.json({ message: 'Deletado com sucesso' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+  const PORTA = process.env.PORT || 3000;
+  app.listen(PORTA, () => console.log(`Servidor rodando na porta ${PORTA}`));
+}
