@@ -10,15 +10,32 @@
   <div class="container">
     <h1>💰 FinTrack</h1>
 
-    <!-- Saldo -->
-    <div class="saldo-box">
-      <span>Saldo atual</span>
-      <h2 id="saldo">R$ 0,00</h2>
+    <!-- Cards de resumo -->
+    <div class="cards">
+      <div class="card card-entrada">
+        <span>Total Entradas</span>
+        <h2 id="total-entradas">R$ 0,00</h2>
+      </div>
+      <div class="card card-saldo">
+        <span>Saldo Atual</span>
+        <h2 id="saldo">R$ 0,00</h2>
+      </div>
+      <div class="card card-saida">
+        <span>Total Saídas</span>
+        <h2 id="total-saidas">R$ 0,00</h2>
+      </div>
+    </div>
+
+    <!-- Gráfico -->
+    <div class="chart-box">
+      <h3>📊 Gastos por Categoria</h3>
+      <canvas id="grafico"></canvas>
     </div>
 
     <!-- Formulário -->
     <div class="form-box">
-      <h3>Nova Transação</h3>
+      <h3 id="form-titulo">Nova Transação</h3>
+      <input type="hidden" id="edit-id" />
       <input type="text" id="descricao" placeholder="Descrição" />
       <input type="number" id="valor" placeholder="Valor (ex: 150.00)" step="0.01" />
       <select id="tipo">
@@ -34,22 +51,8 @@
         <option value="outro">Outro</option>
       </select>
       <input type="date" id="data" />
-      <button onclick="salvarTransacao()">Adicionar</button>
+      <div class="form-buttons">
+        <button id="btn-salvar" onclick="salvarTransacao()">Adicionar</button>
+        <button id="btn-cancelar" onclick="cancelarEdicao()" style="display:none; background:#888">Cancelar</button>
+      </div>
     </div>
-
-    <!-- Filtro -->
-    <div class="filtro-box">
-      <select id="filtro" onchange="carregarTransacoes()">
-        <option value="todos">Todos</option>
-        <option value="entrada">Entradas</option>
-        <option value="saida">Saídas</option>
-      </select>
-    </div>
-
-    <!-- Lista -->
-    <div id="lista"></div>
-  </div>
-
-  <script src="app.js"></script>
-</body>
-</html>
