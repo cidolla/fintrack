@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000';
+const API = '';
 
 async function carregarTransacoes() {
   const filtro = document.getElementById('filtro').value;
